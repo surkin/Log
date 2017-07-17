@@ -10,6 +10,9 @@
 		4BDA5B9F1F1D7A94008CAE7D /* GenerateThumbnailForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA5B9E1F1D7A94008CAE7D /* GenerateThumbnailForURL.c */; };
 		4BDA5BA11F1D7A94008CAE7D /* GeneratePreviewForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA5BA01F1D7A94008CAE7D /* GeneratePreviewForURL.c */; };
 		4BDA5BA31F1D7A94008CAE7D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA5BA21F1D7A94008CAE7D /* main.c */; };
+		4BDA5BB11F1D7CAA008CAE7D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDA5BB01F1D7CAA008CAE7D /* Cocoa.framework */; };
+		4BDA5BB41F1D7CAA008CAE7D /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BDA5BB31F1D7CAA008CAE7D /* blockerList.json */; };
+		4BDA5BB61F1D7CAA008CAE7D /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA5BB51F1D7CAA008CAE7D /* ContentBlockerRequestHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +21,12 @@
 		4BDA5BA01F1D7A94008CAE7D /* GeneratePreviewForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GeneratePreviewForURL.c; sourceTree = "<group>"; };
 		4BDA5BA21F1D7A94008CAE7D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		4BDA5BA41F1D7A94008CAE7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BDA5BAE1F1D7CAA008CAE7D /* ContentBlocker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ContentBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BDA5BB01F1D7CAA008CAE7D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		4BDA5BB31F1D7CAA008CAE7D /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
+		4BDA5BB51F1D7CAA008CAE7D /* ContentBlockerRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandler.swift; sourceTree = "<group>"; };
+		4BDA5BB71F1D7CAA008CAE7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BDA5BB81F1D7CAA008CAE7D /* ContentBlocker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ContentBlocker.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +37,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4BDA5BAB1F1D7CAA008CAE7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BDA5BB11F1D7CAA008CAE7D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -35,6 +52,8 @@
 			isa = PBXGroup;
 			children = (
 				4BDA5B9D1F1D7A94008CAE7D /* Log */,
+				4BDA5BB21F1D7CAA008CAE7D /* ContentBlocker */,
+				4BDA5BAF1F1D7CAA008CAE7D /* Frameworks */,
 				4BDA5B9C1F1D7A94008CAE7D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				4BDA5B9B1F1D7A94008CAE7D /* Log.qlgenerator */,
+				4BDA5BAE1F1D7CAA008CAE7D /* ContentBlocker.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,6 +76,25 @@
 				4BDA5BA41F1D7A94008CAE7D /* Info.plist */,
 			);
 			path = Log;
+			sourceTree = "<group>";
+		};
+		4BDA5BAF1F1D7CAA008CAE7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BDA5BB01F1D7CAA008CAE7D /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4BDA5BB21F1D7CAA008CAE7D /* ContentBlocker */ = {
+			isa = PBXGroup;
+			children = (
+				4BDA5BB31F1D7CAA008CAE7D /* blockerList.json */,
+				4BDA5BB51F1D7CAA008CAE7D /* ContentBlockerRequestHandler.swift */,
+				4BDA5BB71F1D7CAA008CAE7D /* Info.plist */,
+				4BDA5BB81F1D7CAA008CAE7D /* ContentBlocker.entitlements */,
+			);
+			path = ContentBlocker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,16 +128,37 @@
 			productReference = 4BDA5B9B1F1D7A94008CAE7D /* Log.qlgenerator */;
 			productType = "com.apple.product-type.bundle";
 		};
+		4BDA5BAD1F1D7CAA008CAE7D /* ContentBlocker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BDA5BB91F1D7CAA008CAE7D /* Build configuration list for PBXNativeTarget "ContentBlocker" */;
+			buildPhases = (
+				4BDA5BAA1F1D7CAA008CAE7D /* Sources */,
+				4BDA5BAB1F1D7CAA008CAE7D /* Frameworks */,
+				4BDA5BAC1F1D7CAA008CAE7D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ContentBlocker;
+			productName = ContentBlocker;
+			productReference = 4BDA5BAE1F1D7CAA008CAE7D /* ContentBlocker.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		4BDA5B921F1D7A94008CAE7D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Thomas Kobert";
 				TargetAttributes = {
 					4BDA5B9A1F1D7A94008CAE7D = {
+						CreatedOnToolsVersion = 9.0;
+					};
+					4BDA5BAD1F1D7CAA008CAE7D = {
 						CreatedOnToolsVersion = 9.0;
 					};
 				};
@@ -116,6 +176,7 @@
 			projectRoot = "";
 			targets = (
 				4BDA5B9A1F1D7A94008CAE7D /* Log */,
+				4BDA5BAD1F1D7CAA008CAE7D /* ContentBlocker */,
 			);
 		};
 /* End PBXProject section */
@@ -125,6 +186,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BDA5BAC1F1D7CAA008CAE7D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BDA5BB41F1D7CAA008CAE7D /* blockerList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +207,14 @@
 				4BDA5B9F1F1D7A94008CAE7D /* GenerateThumbnailForURL.c in Sources */,
 				4BDA5BA11F1D7A94008CAE7D /* GeneratePreviewForURL.c in Sources */,
 				4BDA5BA31F1D7A94008CAE7D /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BDA5BAA1F1D7CAA008CAE7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BDA5BB61F1D7CAA008CAE7D /* ContentBlockerRequestHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +350,37 @@
 			};
 			name = Release;
 		};
+		4BDA5BBA1F1D7CAA008CAE7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ContentBlocker/ContentBlocker.entitlements;
+				DEVELOPMENT_TEAM = YU3R5Z37Y2;
+				INFOPLIST_FILE = ContentBlocker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.surkin.ContentBlocker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		4BDA5BBB1F1D7CAA008CAE7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ContentBlocker/ContentBlocker.entitlements;
+				DEVELOPMENT_TEAM = YU3R5Z37Y2;
+				INFOPLIST_FILE = ContentBlocker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.surkin.ContentBlocker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -290,6 +398,14 @@
 			buildConfigurations = (
 				4BDA5BA81F1D7A94008CAE7D /* Debug */,
 				4BDA5BA91F1D7A94008CAE7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4BDA5BB91F1D7CAA008CAE7D /* Build configuration list for PBXNativeTarget "ContentBlocker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BDA5BBA1F1D7CAA008CAE7D /* Debug */,
+				4BDA5BBB1F1D7CAA008CAE7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
